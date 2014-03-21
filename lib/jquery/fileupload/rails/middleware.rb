@@ -29,7 +29,7 @@ module JQuery
         end
 
         def iframe_transport?
-          (@request.params['X-Requested-With'] == 'IFrame') && (!@request.params['skip_jupload']) && (!@request.path.include?("/boards/")) #dirty fix
+          @request.params['X-Requested-With'] == 'IFrame' && @request.params['card'].present? #ugly
         end
 
         def html_document_left
